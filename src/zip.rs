@@ -8,9 +8,9 @@ pub fn open_zip(path: &str, out_dir: Option<&str>) -> Result<(), std::io::Error>
 
     let zip_file = File::open(input_path)?;
 
-    let mut zipArchive = ZipArchive::new(zip_file)?;
+    let mut zip_archive = ZipArchive::new(zip_file)?;
 
-    zipArchive.extract(output_path);
+    zip_archive.extract(output_path)?;
 
     Ok(())
 }

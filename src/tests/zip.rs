@@ -1,7 +1,7 @@
 #[cfg(test)]
 mod tests {
     use crate::zip::open_zip;
-    use std::{fmt::Error, fs, io::ErrorKind};
+    use std::{ fs, io::ErrorKind};
     use tempfile;
 
     #[test]
@@ -9,7 +9,7 @@ mod tests {
         let mock_dir = tempfile::tempdir().unwrap();
         let mock_dir_path_name = mock_dir.path().to_str().unwrap();
         let tar_data_path = "./src/tests/data/TestZipFolder.zip";
-        open_zip(tar_data_path, Some(mock_dir_path_name));
+        open_zip(tar_data_path, Some(mock_dir_path_name)).unwrap();
         println!("Here is the {}", mock_dir_path_name);
 
         let mut inside_mock_dir_name = mock_dir_path_name.to_string();
@@ -26,7 +26,7 @@ mod tests {
     }
 
     #[test]
-    
+
     fn fails_cannot_find_directory() {
         let mock_dir = tempfile::tempdir().unwrap();
         let mock_dir_path_name = mock_dir.path().to_str().unwrap();

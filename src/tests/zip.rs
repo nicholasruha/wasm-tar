@@ -1,7 +1,7 @@
 #[cfg(test)]
 mod tests {
     use crate::zip::open_zip;
-    use std::{ fs, io::ErrorKind};
+    use std::{fs, io::ErrorKind};
     use tempfile;
 
     #[test]

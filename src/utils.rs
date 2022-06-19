@@ -10,7 +10,10 @@ pub fn get_input_output_path(
     if !input_file_path.exists() {
         let not_a_file_error = Error::new(
             ErrorKind::InvalidInput,
-            format!("Target path is not a directory!: {}", input_file_path.display()),
+            format!(
+                "Target path is not a directory!: {}",
+                input_file_path.display()
+            ),
         );
         return Err(not_a_file_error);
     }
